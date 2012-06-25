@@ -14,11 +14,17 @@ gempath:
 - $1/.gems
 EOF
 
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 /usr/local/bin/gem install jekyll RedCloth --no-rdoc --no-ri | indent
 
 # Run Jekyll
 echo "Running Jekyll" | indent
 export GEM_HOME=$1/.gems
 export PATH=$1/.gems/bin:$PATH
+export LC_ALL=en_US.UTF-8
+export LANG=en_US.UTF-8
+
 cd $1
-$1/.gems/bin/jekyll | indent
+LC_ALL=en_US.UTF-8 LANG=en_US.UTF-8 $1/.gems/bin/jekyll | indent
